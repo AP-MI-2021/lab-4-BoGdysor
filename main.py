@@ -69,11 +69,11 @@ def palindrome(number):
     :return: 1 - Daca este palindrom , 0- Daca nu este palindrom
     """
     copy_number = number
-    overtuned = 0
+    overturned = 0
     while copy_number:
-        overtuned = overtuned * 10 + copy_number % 10
+        overturned = overturned * 10 + copy_number % 10
         copy_number = copy_number // 10
-    if overtuned == number:
+    if overturned == number:
         return 1
     else:
         return 0
@@ -90,6 +90,29 @@ def concatenation(list_1, list_2):
 
 def test_concatenation():
     assert concatenation([12, 22, 36, 11], [21, 23, 63, 55, 424]) == [1221, 3663]
+
+
+def overturned(number):
+    copy_number = number
+    overturned = 0
+    while copy_number:
+        overturned = overturned * 10 + copy_number % 10
+        copy_number = copy_number // 10
+    return overturned
+
+
+def replace_with_overturned(lst_1, lst_2):
+    new_list = []
+    count = 0
+    for i in lst_1:
+        for j in lst_2:
+            if i % j == 0:
+                count = count + 1
+        if count == len(lst_2):
+            new_list.append(overturned(i))
+        else:
+            new_list.append(i)
+    return new_list
 
 
 def main():
@@ -117,6 +140,10 @@ def main():
         elif optiune == '5':
             list_c = input("Introduceti a treia lista, numerele separate printr-un spatiu")
             list_c = convert_str_to_int_list(list_c)
+            list_a = replace_with_overturned(list_a, list_c)
+            list_b = replace_with_overturned(list_b, list_c)
+            print(list_a)
+            print(list_b)
         elif optiune == 'x':
             break
         else:
