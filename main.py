@@ -3,7 +3,7 @@ def read_list():
     Citeste un string pe care il transforma intr-o lista de numere
     :return: lista de numere
     """
-    str_list = input("Introduceti numerele pentru adaugarea in lista separate printr-o virgula: ")
+    str_list = input("Introduceti numerele pentru adaugarea in lista separate printr-un spatiu ")
     int_list = []
     str_list = str_list.split(" ")
     for i in str_list:
@@ -120,9 +120,9 @@ def test_concatenation():
 
 def overturned(number):
     """
-    
-    :param number:
-    :return:
+    Returneaza oglinditul lui number
+    :param number: int - numarul pe care o sa il oglindim
+    :return:overturned - numarul oglindit
     """
     copy_number = number
     overturned = 0
@@ -132,7 +132,20 @@ def overturned(number):
     return overturned
 
 
+def test_overturned():
+    assert overturned(123) == 321
+    assert overturned(1233) == 3321
+    assert overturned(111) == 111
+
+
 def replace_with_overturned(lst_1, lst_2):
+    """
+    Inlocuieste elementele din lista care sunt divizibile cu toate numerele din lst_2 cu oglinditul sau,iar daca nu este divizibil
+    cu toate elementele din lst_2 atunci elementul din lst_1 nu se schimba
+    :param lst_1:lista cu elemente ce trebuie inlocuita
+    :param lst_2:lista cu divizorii
+    :return:new_list - noua lista in urma inlocuiriilor
+    """
     new_list = []
     count = 0
     for i in lst_1:
@@ -146,15 +159,18 @@ def replace_with_overturned(lst_1, lst_2):
     return new_list
 
 
+def test_replace_with_overturned():
+    assert replace_with_overturned([12, 22, 36, 363], [1, 2, 3, 4]) == [21, 22, 63, 363]
+    assert replace_with_overturned([22, 23, 36, 55, 363], [1, 2, 3, 4]) == [22, 23, 63, 55, 363]
+
+
 def main():
     list_a = []
     list_b = []
     while True:
         optiune = input("Introduceti optiunea:")
         if optiune == '1':
-            print("introduceti prima lista:  ")
             list_a = read_list()
-            print("Introucrti a 2a lista: ")
             list_b = read_list()
         elif optiune == '2':
             op = even_length(list_a, list_b)
@@ -184,6 +200,7 @@ def main():
 if __name__ == '__main__':
     test_even_length()
     test_palindrome()
+    test_overturned()
     test_concatenation()
     test_concatenation()
     main()
