@@ -156,8 +156,8 @@ def replace_with_overturned(lst_1, lst_2):
             new_list.append(overturned(i))
         else:
             new_list.append(i)
+        count = 0
     return new_list
-
 
 def test_replace_with_overturned():
     assert replace_with_overturned([12, 22, 36, 363], [1, 2, 3, 4]) == [21, 22, 63, 363]
@@ -185,7 +185,7 @@ def main():
             concatenated_list = concatenation(list_a, list_b)
             print(concatenated_list)
         elif optiune == '5':
-            list_c = input("Introduceti a treia lista, numerele separate printr-un spatiu")
+            list_c = input("Introduceti a treia lista, numerele separate printr-un spatiu: ")
             list_c = convert_str_to_int_list(list_c)
             list_a = replace_with_overturned(list_a, list_c)
             list_b = replace_with_overturned(list_b, list_c)
@@ -201,6 +201,7 @@ if __name__ == '__main__':
     test_even_length()
     test_palindrome()
     test_overturned()
+    test_replace_with_overturned()
     test_concatenation()
     test_concatenation()
     main()
