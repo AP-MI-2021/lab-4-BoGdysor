@@ -90,7 +90,19 @@ def palindrome(number):
         return 0
 
 
+def test_palindrome():
+    assert palindrome(111) == 1
+    assert palindrome(123) == 0
+    assert palindrome(1221) == 1
+
+
 def concatenation(list_1, list_2):
+    """
+    Concateneaza toate palindroamele obtinute prin concatenarea elementelor de pe aceleasi pozitii în cele doua liste.
+    :param list_1: lista de numere intregi
+    :param list_2: lista de numere intregi
+    :return: palindrome_list - lista palindoramelor obtinute in urma concatenarii elementelor de pe aceleasi pozitii in cele doua liste.
+    """
     palindrome_list = []
     for i in range(len(list_1)):
         first_string = str(list_1[i]) + str(list_2[i])
@@ -101,9 +113,17 @@ def concatenation(list_1, list_2):
 
 def test_concatenation():
     assert concatenation([12, 22, 36, 11], [21, 23, 63, 55, 424]) == [1221, 3663]
+    assert concatenation([121, 77, 36, 11], [12, 77, 55, 424]) == [7777]
+    assert concatenation([122, 77, 36, 11], [221, 77, 55, 424]) == [122221, 7777]
+    assert concatenation([1, 2, 3, 4], [2, 3, 5, 7, 7]) == []
 
 
 def overturned(number):
+    """
+    
+    :param number:
+    :return:
+    """
     copy_number = number
     overturned = 0
     while copy_number:
@@ -163,6 +183,7 @@ def main():
 
 if __name__ == '__main__':
     test_even_length()
+    test_palindrome()
     test_concatenation()
     test_concatenation()
     main()
