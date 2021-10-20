@@ -12,6 +12,11 @@ def read_list():
 
 
 def convert_str_to_int_list(lst):
+    """
+    Converteste string-ul in lista de numere
+    :param lst: string
+    :return: int_list - lista formata din int-uri
+    """
     int_list = []
     str_list = lst.split(" ")
     for i in str_list:
@@ -48,10 +53,10 @@ def test_even_length():
 
 def intersection(list_1, list_2):
     """
-    
-    :param list_1: 
-    :param list_2: 
-    :return: 
+    Intersecteaza cele 2 liste
+    :param list_1: lista cu numere intregi
+    :param list_2: lista cu numere intregi
+    :return: intersected_list - noua lista in urma intersectiei celor 2 liste
     """
     intersected_list = []
     for i in range(len(list_1)):
@@ -60,6 +65,12 @@ def intersection(list_1, list_2):
                 if list_1[i] not in intersected_list:
                     intersected_list.append(list_1[i])
     return intersected_list
+
+
+def test_intersection():
+    assert intersection([12, 22, 36, 424], [22, 23, 36, 55, 424]) == [22, 36, 424]
+    assert intersection([33, 22, 36, 424], [22, 33, 36, 55, 425]) == [33, 22, 36, ]
+    assert intersection([1, 2, 3], [4, 5, 6]) == []
 
 
 def palindrome(number):
@@ -152,5 +163,6 @@ def main():
 
 if __name__ == '__main__':
     test_even_length()
+    test_concatenation()
     test_concatenation()
     main()
